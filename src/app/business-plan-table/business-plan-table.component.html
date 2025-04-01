@@ -1,0 +1,19 @@
+<h2>Business Plans</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Plan Id</th>
+            <th>Plan Name</th>
+            <th>Plan Description</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let businessPlan of businessPlans">
+            <td>{{businessPlan.planId}}</td>
+            <td>{{businessPlan.planName}}</td>
+            <td>{{businessPlan.planDescription}}</td>
+        </tr>
+    </tbody>
+</table>
