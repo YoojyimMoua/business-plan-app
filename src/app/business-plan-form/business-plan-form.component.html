@@ -1,7 +1,82 @@
-<h2>Create Business Plan</h2>
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10 col-sm-12">
+      <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+          <h2>{{ isEditing ? 'Edit' : 'Create' }} Business Plan</h2>
+        </div>
+        <div class="card-body">
+          <!-- Error Message -->
+          <div class="alert alert-danger text-center" *ngIf="errorMessage != ''">
+            {{ errorMessage }}
+          </div>
 
-<form (ngSubmit)="onSubmit()">
+          <!-- Form -->
+          <form
+            *ngIf="errorMessage === ''"
+            (ngSubmit)="onSubmit()"
+            #businessPlanForm="ngForm"
+          >
+            <!-- Plan Name -->
+            <div class="mb-4">
+              <label class="form-label fw-bold">Plan Name</label>
+              <input
+                required
+                #planName="ngModel"
+                class="form-control"
+                type="text"
+                name="planName"
+                [(ngModel)]="businessPlan.planName"
+                placeholder="Enter the plan name"
+              />
+              <div
+                *ngIf="planName.invalid && (planName.touched || planName.dirty)"
+              >
+                <small class="text-danger" *ngIf="planName.errors?.['required']">
+                  Plan Name is required.
+                </small>
+              </div>
+            </div>
 
-    <input type="text" name="planName" [(ngModel)]="businessPlan.planName" />
-    <button type="submit">Create</button>
-</form>
+            <!-- Plan Description -->
+            <div class="mb-4">
+              <label class="form-label fw-bold">Plan Description</label>
+              <textarea
+                required
+                #planDescription="ngModel"
+                class="form-control"
+                name="businessModel"
+                [(ngModel)]="businessPlan.planDescription"
+                rows="4"
+                placeholder="Enter a brief description of the plan"
+              ></textarea>
+              <div
+                *ngIf="
+                  planDescription.invalid &&
+                  (planDescription.touched || planDescription.dirty)
+                "
+              >
+                <small
+                  class="text-danger"
+                  *ngIf="planDescription.errors?.['required']"
+                >
+                  Plan Description is required.
+                </small>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+              <button
+                class="btn btn-primary btn-lg w-100"
+                type="submit"
+              >
+                {{ isEditing ? 'Confirm Changes' : 'Create' }}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

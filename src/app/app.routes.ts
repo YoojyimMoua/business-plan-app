@@ -5,5 +5,6 @@ import { BusinessPlanFormComponent } from './business-plan-form/business-plan-fo
 export const routes: Routes = [
     {path: '', component: BusinessPlanTableComponent},
     {path: 'create', component: BusinessPlanFormComponent},
+    {path: 'edit/:planId', component: BusinessPlanFormComponent},
     {path: 'businessPlans', redirectTo: '', pathMatch:'full'}
 ];

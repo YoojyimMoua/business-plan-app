@@ -17,5 +17,19 @@ export class BusinessPlanService {
     return this.http.get<BusinesssPlan[]>(this.apiUrl);
   }
 
+  getBusinessPlanById(planId : number): Observable<BusinesssPlan> {
+    return this.http.get<BusinesssPlan>(`${this.apiUrl}/${planId}`);
+  }
 
+  createBusinessPlan(businessPlan: BusinesssPlan): Observable<BusinesssPlan> {
+    return this.http.post<BusinesssPlan>(this.apiUrl, businessPlan);
+  }
+
+  deleteBusinessPlan(planId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${planId}`);
+  }
+
+  editBusinessPlan(businessPlan: BusinesssPlan): Observable<BusinesssPlan> {
+    return this.http.put<BusinesssPlan>(`${this.apiUrl}/${businessPlan.planId}`, businessPlan);
+  }
 }
