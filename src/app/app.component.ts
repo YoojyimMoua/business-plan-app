@@ -3,6 +3,7 @@ import { RouterOutlet, RouterModule } from '@angular/router';
 import { BusinessPlanTableComponent } from './business-plan-table/business-plan-table.component';
 
 
+
 @Component({
   selector: 'app-root',
   standalone: true,

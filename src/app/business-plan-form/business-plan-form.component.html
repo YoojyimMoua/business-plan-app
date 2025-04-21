@@ -21,7 +21,7 @@
             <div class="mb-4">
               <label class="form-label fw-bold">Plan Name</label>
               <input
-                required
+                required="true"
                 #planName="ngModel"
                 class="form-control"
                 type="text"
@@ -45,7 +45,7 @@
                 required
                 #planDescription="ngModel"
                 class="form-control"
-                name="businessModel"
+                name="planDescription"
                 [(ngModel)]="businessPlan.planDescription"
                 rows="4"
                 placeholder="Enter a brief description of the plan"
@@ -61,6 +61,141 @@
                   *ngIf="planDescription.errors?.['required']"
                 >
                   Plan Description is required.
+                </small>
+              </div>
+            </div>
+
+            <!-- Executive Summary -->
+            <div class="mb-4">
+              <label class="form-label fw-bold">Executive Summary</label>
+              <textarea
+                required
+                #executiveSummary="ngModel"
+                class="form-control"
+                name="executiveSummary"
+                [(ngModel)]="businessPlan.executiveSummary"
+                rows="4"
+                placeholder="Provide an overview of your business plan"
+              ></textarea>
+              <div
+                *ngIf="
+                  executiveSummary.invalid &&
+                  (executiveSummary.touched || executiveSummary.dirty)
+                "
+              >
+                <small
+                  class="text-danger"
+                  *ngIf="executiveSummary.errors?.['required']"
+                >
+                  Executive Summary is required.
+                </small>
+              </div>
+            </div>
+
+            <!-- Company Description -->
+            <div class="mb-4">
+              <label class="form-label fw-bold">Company Description</label>
+              <textarea
+                required
+                #companyDescription="ngModel"
+                class="form-control"
+                name="companyDescription"
+                [(ngModel)]="businessPlan.companyDescription"
+                rows="4"
+                placeholder="Describe your company and its mission"
+              ></textarea>
+              <div
+                *ngIf="
+                  companyDescription.invalid &&
+                  (companyDescription.touched || companyDescription.dirty)
+                "
+              >
+                <small
+                  class="text-danger"
+                  *ngIf="companyDescription.errors?.['required']"
+                >
+                  Company Description is required.
+                </small>
+              </div>
+            </div>
+
+            <!-- Market Research -->
+            <div class="mb-4">
+              <label class="form-label fw-bold">Market Research</label>
+              <textarea
+                required
+                #marketResearch="ngModel"
+                class="form-control"
+                name="marketResearch"
+                [(ngModel)]="businessPlan.marketResearch"
+                rows="4"
+                placeholder="Summarize your market research findings"
+              ></textarea>
+              <div
+                *ngIf="
+                  marketResearch.invalid &&
+                  (marketResearch.touched || marketResearch.dirty)
+                "
+              >
+                <small
+                  class="text-danger"
+                  *ngIf="marketResearch.errors?.['required']"
+                >
+                  Market Research is required.
+                </small>
+              </div>
+            </div>
+
+            <!-- Service Line -->
+            <div class="mb-4">
+              <label class="form-label fw-bold">Service Line</label>
+              <textarea
+                required
+                #serviceLine="ngModel"
+                class="form-control"
+                name="serviceLine"
+                [(ngModel)]="businessPlan.serviceLine"
+                rows="4"
+                placeholder="Describe the products or services you offer"
+              ></textarea>
+              <div
+                *ngIf="
+                  serviceLine.invalid &&
+                  (serviceLine.touched || serviceLine.dirty)
+                "
+              >
+                <small
+                  class="text-danger"
+                  *ngIf="serviceLine.errors?.['required']"
+                >
+                  Service Line is required.
+                </small>
+              </div>
+            </div>
+
+            <!-- Marketing and Sales -->
+            <div class="mb-4">
+              <label class="form-label fw-bold">Marketing and Sales</label>
+              <textarea
+                required
+                #marketingAndSales="ngModel"
+                class="form-control"
+                name="marketingAndSales"
+                [(ngModel)]="businessPlan.marketingAndSales"
+                rows="4"
+                placeholder="Outline your marketing and sales strategy"
+              ></textarea>
+              <div
+                *ngIf="
+                  marketingAndSales.invalid &&
+                  (marketingAndSales.touched || marketingAndSales.dirty)
+                "
+              >
+                <small
+                  class="text-danger"
+                  *ngIf="marketingAndSales.errors?.['required']"
+                >
+                  Marketing and Sales is required.
                 </small>
               </div>
             </div>

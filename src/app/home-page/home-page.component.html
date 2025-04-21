@@ -1,0 +1,52 @@
+<div class="container my-5">
+    <!-- Hero Section -->
+    <div class="text-center bg-primary text-white p-5 rounded shadow-lg">
+      <h1 class="display-4 fw-bold">Welcome to BizWiz!</h1>
+      <p class="lead mt-3">
+        Your one-stop solution for creating, managing, and downloading business plans.
+      </p>
+      <a routerLink="/create" class="btn btn-light btn-lg mt-3">
+        <i class="bi bi-plus-circle me-2"></i>Create Your Plan
+      </a>
+    </div>
+  
+    <!-- Features Section -->
+    <div class="row mt-5">
+      <div class="col-md-4 text-center">
+        <i class="bi bi-pencil-square text-primary display-4 mb-3"></i>
+        <h3 class="fw-bold">Create Plans</h3>
+        <p class="text-muted">
+          Easily create professional business plans with our intuitive tools.
+        </p>
+      </div>
+      <div class="col-md-4 text-center">
+        <i class="bi bi-folder2-open text-success display-4 mb-3"></i>
+        <h3 class="fw-bold">Manage Plans</h3>
+        <p class="text-muted">
+          Organize and edit your business plans in one convenient location.
+        </p>
+      </div>
+      <div class="col-md-4 text-center">
+        <i class="bi bi-cloud-download text-danger display-4 mb-3"></i>
+        <h3 class="fw-bold">Download Plans</h3>
+        <p class="text-muted">
+          Export your plans as PDF or DOCX files for easy sharing.
+        </p>
+      </div>
+    </div>
+  
+    <!-- Call-to-Action Section -->
+    <div class="text-center mt-5">
+      <h2 class="fw-bold">Ready to Get Started?</h2>
+      <p class="text-muted">
+        Join thousands of entrepreneurs who trust BizWiz to bring their ideas to life.
+      </p>
+      <a routerLink="/samplePlans" class="btn btn-primary btn-lg">
+        <i class="bi bi-eye me-2"></i>Explore Sample Plans
+      </a>
+    </div>
+  </div>
+
+  <div class="container mt-4">
+    <router-outlet></router-outlet>
+  </div>

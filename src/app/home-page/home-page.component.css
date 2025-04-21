@@ -1,0 +1,21 @@
+.container {
+    max-width: 1200px;
+  }
+  
+  .bg-primary {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+  }
+  
+  .btn-light {
+    color: #007bff;
+    border: 2px solid #fff;
+  }
+  
+  .btn-light:hover {
+    background-color: #fff;
+    color: #0056b3;
+  }
+  
+  .text-muted {
+    font-size: 0.95rem;
+  }

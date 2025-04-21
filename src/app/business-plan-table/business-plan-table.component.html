@@ -31,6 +31,12 @@
                   <i class="bi bi-pencil"></i> Edit
                 </button>
                 <button
+                  class="btn btn-outline-success btn-sm"
+                  (click)="downloadBusinessPlan(businessPlan)"
+                >
+                  <i class="bi bi-download"></i> Download
+                </button>
+                <button
                   class="btn btn-outline-danger btn-sm"
                   (click)="deleteBusinessPlan(businessPlan.planId)"
                 >
