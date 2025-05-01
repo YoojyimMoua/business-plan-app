@@ -2,8 +2,14 @@
   <h2 class="text-center mb-4">Business Plans</h2>
 
   <div class="card shadow-lg">
-    <div class="card-header bg-primary text-white">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
       <p class="fs-5 mb-0">Overview</p>
+      <button
+        class="btn btn-light btn-sm fw-semibold"
+        routerLink="/create"
+      >
+        <i class="bi bi-plus-circle me-1"></i>Create
+      </button>
     </div>
 
     <div class="card-body">
@@ -15,14 +21,27 @@
               <th>Plan ID</th>
               <th>Plan Name</th>
               <th>Plan Description</th>
+              <th>Deadline</th>
               <th class="text-center">Actions</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let businessPlan of businessPlans">
+            <tr
+              *ngFor="let businessPlan of businessPlans"
+              [ngClass]="{ 'table-danger': isOverdue(businessPlan.deadline) }"
+            >
               <td>{{ businessPlan.planId }}</td>
               <td>{{ businessPlan.planName }}</td>
               <td>{{ businessPlan.planDescription }}</td>
+              <td>
+                <span *ngIf="businessPlan.deadline">{{ businessPlan.deadline }} </span>
+                <button
+                  class="btn btn-outline-secondary btn-sm"
+                  (click)="setDeadline(businessPlan)"
+                >
+                  Set Deadline
+                </button>
+              </td>
               <td class="text-center">
                 <button
                   class="btn btn-outline-primary btn-sm me-2"
@@ -31,10 +50,10 @@
                   <i class="bi bi-pencil"></i> Edit
                 </button>
                 <button
-                  class="btn btn-outline-success btn-sm"
+                  class="btn btn-outline-success btn-sm me-2"
                   (click)="downloadBusinessPlan(businessPlan)"
                 >
-                  <i class="bi bi-download"></i> Download
+                  <i class="bi bi-download"></i> Download 
                 </button>
                 <button
                   class="btn btn-outline-danger btn-sm"

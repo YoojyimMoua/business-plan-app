@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { BusinesssPlan } from '../../models/businessPlan';
 import { BusinessPlanService } from '../business-plan.service';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { jsPDF } from 'jspdf';
 
 @Component({
   selector: 'business-plan-table',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './business-plan-table.component.html',
   styleUrl: './business-plan-table.component.css'
 })
@@ -26,14 +26,19 @@ export class BusinessPlanTableComponent {
   }
 
   deleteBusinessPlan(planId: number): void {
-    this.businessPlanService.deleteBusinessPlan(planId).subscribe({
-      next: (response) => {
-        this.businessPlans = this.businessPlans.filter(plan => plan.planId !== planId);
-      },
-      error: (err) => {
-        console.error('Error deleting business plan:', err);
-      }
-    });
+    const confirmDelete = window.confirm('Are you sure you want to delete this business plan? This action cannot be undone.');
+    if (confirmDelete) {
+      this.businessPlanService.deleteBusinessPlan(planId).subscribe({
+        next: () => {
+          this.businessPlans = this.businessPlans.filter(plan => plan.planId !== planId);
+          alert('Business plan deleted successfully.');
+        },
+        error: (err) => {
+          console.error('Error deleting business plan:', err);
+          alert('An error occurred while deleting the business plan.');
+        }
+      });
+    }
   }
 
   editBusinessPlan(planId: number): void {
@@ -104,5 +109,27 @@ export class BusinessPlanTableComponent {
     // Save the PDF
     doc.save(`${plan.planName}.pdf`);
   }
+  setDeadline(plan: BusinesssPlan): void {
+    const deadline = prompt('Enter a deadline (YYYY-MM-DD):');
+    if (deadline) {
+      plan.deadline = deadline;
   
+      // Call the backend to update the business plan
+      this.businessPlanService.editBusinessPlan(plan).subscribe({
+        next: () => {
+          alert(`Deadline set to ${deadline} and saved successfully.`);
+        },
+        error: (err) => {
+          console.error('Error updating deadline:', err);
+          alert('An error occurred while saving the deadline.');
+        }
+      });
+    }
+  }
+  isOverdue(deadline?: string): boolean {
+    if (!deadline) return false;
+    const currentDate = new Date();
+    const deadlineDate = new Date(deadline);
+    return currentDate > deadlineDate;
+  }
 }

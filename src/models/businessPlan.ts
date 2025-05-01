@@ -7,4 +7,5 @@ export interface BusinesssPlan {
     marketResearch: string;
     serviceLine: string;
     marketingAndSales: string;
+    deadline?: string; // Optional field for deadline
 }
