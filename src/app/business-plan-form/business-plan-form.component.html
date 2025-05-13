@@ -6,18 +6,18 @@
           <h2>{{ isEditing ? 'Edit' : 'Create' }} Business Plan</h2>
         </div>
         <div class="card-body">
-          <!-- Error Message -->
+          
           <div class="alert alert-danger text-center" *ngIf="errorMessage != ''">
             {{ errorMessage }}
           </div>
 
-          <!-- Form -->
+          
           <form
             *ngIf="errorMessage === ''"
             (ngSubmit)="onSubmit()"
             #businessPlanForm="ngForm"
           >
-            <!-- Plan Name -->
+            
             <div class="mb-4">
               <label class="form-label fw-bold">Plan Name</label>
               <input
@@ -38,7 +38,7 @@
               </div>
             </div>
 
-            <!-- Plan Description -->
+            
             <div class="mb-4">
               <label class="form-label fw-bold">Plan Description</label>
               <textarea
@@ -65,7 +65,7 @@
               </div>
             </div>
 
-            <!-- Executive Summary -->
+            
             <div class="mb-4">
               <label class="form-label fw-bold">Executive Summary</label>
               <textarea
@@ -92,7 +92,7 @@
               </div>
             </div>
 
-            <!-- Company Description -->
+            
             <div class="mb-4">
               <label class="form-label fw-bold">Company Description</label>
               <textarea
@@ -119,7 +119,7 @@
               </div>
             </div>
 
-            <!-- Market Research -->
+            
             <div class="mb-4">
               <label class="form-label fw-bold">Market Research</label>
               <textarea
@@ -146,7 +146,7 @@
               </div>
             </div>
 
-            <!-- Service Line -->
+            
             <div class="mb-4">
               <label class="form-label fw-bold">Service Line</label>
               <textarea
@@ -173,7 +173,7 @@
               </div>
             </div>
 
-            <!-- Marketing and Sales -->
+            
             <div class="mb-4">
               <label class="form-label fw-bold">Marketing and Sales</label>
               <textarea
@@ -200,7 +200,7 @@
               </div>
             </div>
 
-            <!-- Submit Button -->
+            
             <div class="text-center">
               <button
                 class="btn btn-primary btn-lg w-100"
